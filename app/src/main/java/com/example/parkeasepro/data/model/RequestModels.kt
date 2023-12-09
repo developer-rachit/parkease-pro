@@ -6,7 +6,8 @@ data class SlotSearchRequest(
 )
 
 data class BookSlotRequest(
-    val name: String,
-    val plateNumber: String,
+    val username: String,
+    val number_plate: String,
     val location: String
 )
+

@@ -1,16 +1,11 @@
 package com.example.parkeasepro
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Snackbar
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import com.example.parkeasepro.data.model.BookSlotRequest
 import com.example.parkeasepro.presentation.SlotsScreen
 import com.example.parkeasepro.ui.theme.ParkEaseProTheme
 import kotlinx.coroutines.Dispatchers
@@ -25,15 +20,49 @@ class SlotsActivity : ComponentActivity() {
         val occupied = intent.getIntExtra("occupied", 0)
         val availableSlot = intent.getIntExtra("available_slot", 0)
 
+        val username = intent.getStringExtra("name")
+        val plate = intent.getStringExtra("plate")
+        val place = intent.getStringExtra("place")
+
         setContent {
             ParkEaseProTheme {
-                SlotsScreen(totalSlot, occupied, availableSlot, onBookSlotClicked = {request ->
-                    GlobalScope.launch(Dispatchers.IO) { 
-                        val response = ParkingService.create().bookSlot(request.name, request.plateNumber, request.location)
-                        if(response.isSuccessful) {
+                SlotsScreen(totalSlot, occupied, availableSlot, onBookSlotClicked = { request ->
+                    GlobalScope.launch(Dispatchers.IO) {
+
+                        var bookSlotRequest = BookSlotRequest(username!!, plate!!, place!!)
+                        val response = ParkingService.create().bookSlot(bookSlotRequest)
+//                        val response = ParkingService.create().bookSlot(request.name, request.plateNumber, request.location)
+
+                        if (response.isSuccessful) {
+                            if (response.code() == 200) {
+
+                                runOnUiThread {
+                                    Toast.makeText(
+                                        applicationContext,  response.body()!!.msg, Toast.LENGTH_LONG
+                                    ).show()
+
+                                }
+
+                            }
+                            runOnUiThread {
+                                Toast.makeText(
+                                    applicationContext,
+                                    response.body()!!.msg,
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+
+                        } else {
+                            runOnUiThread {
+                                Toast.makeText(
+                                    applicationContext,
+                                    response.body()!!.msg,
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
                         }
                     }
-                    
+
                 })
             }
         }

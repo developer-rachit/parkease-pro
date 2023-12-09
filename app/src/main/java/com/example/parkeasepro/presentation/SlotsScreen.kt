@@ -59,10 +59,10 @@ fun SlotField(label: String, value: Int) {
 }
 
 @Composable
-fun BookSlotButton(name: String, plateNumber: String, location: String, onBookSlotClicked: (BookSlotRequest) -> Unit) {
+fun BookSlotButton(name: String, plateNumber: String, place: String, onBookSlotClicked: (BookSlotRequest) -> Unit) {
     Button(
         onClick = {
-                  onBookSlotClicked(BookSlotRequest(name, plateNumber, location))
+                  onBookSlotClicked(BookSlotRequest(name, plateNumber, place))
         },
         modifier = Modifier
             .fillMaxWidth()
