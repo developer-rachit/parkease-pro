@@ -24,9 +24,7 @@ class MainActivity : ComponentActivity() {
 
                     GlobalScope.launch(Dispatchers.IO) {
                         val response = ParkingService.create().getSlots(request.location)
-                        Log.d("nc", "=================" + response)
                         if (response.isSuccessful) {
-                            Log.d("nc", "api is successfull=================" + response)
                             val slotsResponse = response.body()
                             startActivity(
                                 Intent(
@@ -36,7 +34,6 @@ class MainActivity : ComponentActivity() {
                                     putExtra("totalSlot", slotsResponse?.totalSlot ?: 0)
                                     putExtra("occupied", slotsResponse?.occupied ?: 0)
                                     putExtra("available_slot", slotsResponse?.available_slot ?: 0)
-
                                     putExtra("name", request?.username ?: "xyz")
                                     putExtra("plate", request?.number_plate ?: "uk1011")
                                     putExtra("place", request?.location ?: "delhi")

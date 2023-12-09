@@ -31,11 +31,9 @@ class SlotsActivity : ComponentActivity() {
 
                         var bookSlotRequest = BookSlotRequest(username!!, plate!!, place!!)
                         val response = ParkingService.create().bookSlot(bookSlotRequest)
-//                        val response = ParkingService.create().bookSlot(request.name, request.plateNumber, request.location)
 
                         if (response.isSuccessful) {
                             if (response.code() == 200) {
-
                                 runOnUiThread {
                                     Toast.makeText(
                                         applicationContext,  response.body()!!.msg, Toast.LENGTH_LONG

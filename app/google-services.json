@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "506090292863",
+    "project_id": "parkease-pro",
+    "storage_bucket": "parkease-pro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506090292863:android:bbd3d41235398f787be14a",
+        "android_client_info": {
+          "package_name": "com.example.parkeasepro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506090292863-em863b2hmbasfjk6hf21ikro8l4milel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCemcmwKiW6JRS6EnUKs44u9w7tWKKWUeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506090292863-em863b2hmbasfjk6hf21ikro8l4milel.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506090292863:android:81f0b9a2d5b38e2a7be14a",
+        "android_client_info": {
+          "package_name": "com.pedestrian.parkeasepro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506090292863-vqghe02t046hdj2k4611mk3s77vh5tqr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pedestrian.parkeasepro",
+            "certificate_hash": "8c362a3a556c5a1f5f65a5ebcad269cee88cec30"
+          }
+        },
+        {
+          "client_id": "506090292863-em863b2hmbasfjk6hf21ikro8l4milel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCemcmwKiW6JRS6EnUKs44u9w7tWKKWUeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506090292863-em863b2hmbasfjk6hf21ikro8l4milel.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
